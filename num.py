@@ -2,24 +2,26 @@ class Solution(object):
     def myAtoi(self, s):
         res = []
         r = []
+        num = 0
         for i in range(len(s)):
-            if s[i].isdigit():
+            if s[i].isdigit() or s[i] == '-' or s[i] == '+':
                 res.append(s[i])
-            elif s[i] == ' ' or s[i] == '-':
+            elif s[i] == ' ':
                 continue
             else:
-                res.append('0')
+                res.append(' ')
 
-        for i in range(len(res)):
-            if res[i] != '0':
-                r.append(res[i])
+        for i in res:
+            if i.isdigit() or i == '-' or i == '+':
+                r.append(i)
             else:
                 break
-
-        num = ''.join(r)
-        n = int(num)
-
-        return abs(n)
+        num_str = ''.join(r)
+        try:
+            num = int(num_str)
+        except ValueError:
+            num = 0
+        return num
 
 k = Solution()
-print(k.myAtoi(" -042"))
+print(k.myAtoi("+1"))
