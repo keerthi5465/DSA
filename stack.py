@@ -1,7 +1,6 @@
 
 def equalStacks(h1, h2, h3):
     # Write your code here
-    a,b,c = 0,0,0
     def pop_value(a):
         h = []
         sum_c = sum(a)
